@@ -780,6 +780,13 @@
 			"title": "METAFONT",
 			"owner": "LaeriExNihilo"
 		},
+		"metal": {
+			"title": "Metal Shading Language",
+			"aliasTitles": {
+				"msl": "MSL"
+			},
+			"owner": "vinniegarcia"
+		},
 		"mikrotik": {
 			"title": "MikroTik",
 			"aliasTitles": {

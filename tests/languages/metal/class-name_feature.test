@@ -1,0 +1,154 @@
+texture1d<float> t1;
+texture1d_array<float> t2;
+texture2d<half> t3;
+texture2d_array<float> t4;
+texture2d_ms<float> t5;
+texture2d_ms_array<float> t6;
+texture3d<float> t7;
+texturecube<float> t8;
+texturecube_array<float> t9;
+texture_buffer<float> t10;
+depth2d<float> d1;
+depth2d_array<float> d2;
+depth2d_ms<float> d3;
+depth2d_ms_array<float> d4;
+depthcube<float> d5;
+depthcube_array<float> d6;
+sampler s;
+atomic_int a1; atomic_uint a2; atomic_bool a3; atomic_ulong a4; atomic_float a5;
+
+----------------------------------------------------
+
+[
+	["class-name", "texture1d"],
+	["operator", "<"],
+	["keyword", "float"],
+	["operator", ">"],
+	" t1",
+	["punctuation", ";"],
+
+	["class-name", "texture1d_array"],
+	["operator", "<"],
+	["keyword", "float"],
+	["operator", ">"],
+	" t2",
+	["punctuation", ";"],
+
+	["class-name", "texture2d"],
+	["operator", "<"],
+	["keyword", "half"],
+	["operator", ">"],
+	" t3",
+	["punctuation", ";"],
+
+	["class-name", "texture2d_array"],
+	["operator", "<"],
+	["keyword", "float"],
+	["operator", ">"],
+	" t4",
+	["punctuation", ";"],
+
+	["class-name", "texture2d_ms"],
+	["operator", "<"],
+	["keyword", "float"],
+	["operator", ">"],
+	" t5",
+	["punctuation", ";"],
+
+	["class-name", "texture2d_ms_array"],
+	["operator", "<"],
+	["keyword", "float"],
+	["operator", ">"],
+	" t6",
+	["punctuation", ";"],
+
+	["class-name", "texture3d"],
+	["operator", "<"],
+	["keyword", "float"],
+	["operator", ">"],
+	" t7",
+	["punctuation", ";"],
+
+	["class-name", "texturecube"],
+	["operator", "<"],
+	["keyword", "float"],
+	["operator", ">"],
+	" t8",
+	["punctuation", ";"],
+
+	["class-name", "texturecube_array"],
+	["operator", "<"],
+	["keyword", "float"],
+	["operator", ">"],
+	" t9",
+	["punctuation", ";"],
+
+	["class-name", "texture_buffer"],
+	["operator", "<"],
+	["keyword", "float"],
+	["operator", ">"],
+	" t10",
+	["punctuation", ";"],
+
+	["class-name", "depth2d"],
+	["operator", "<"],
+	["keyword", "float"],
+	["operator", ">"],
+	" d1",
+	["punctuation", ";"],
+
+	["class-name", "depth2d_array"],
+	["operator", "<"],
+	["keyword", "float"],
+	["operator", ">"],
+	" d2",
+	["punctuation", ";"],
+
+	["class-name", "depth2d_ms"],
+	["operator", "<"],
+	["keyword", "float"],
+	["operator", ">"],
+	" d3",
+	["punctuation", ";"],
+
+	["class-name", "depth2d_ms_array"],
+	["operator", "<"],
+	["keyword", "float"],
+	["operator", ">"],
+	" d4",
+	["punctuation", ";"],
+
+	["class-name", "depthcube"],
+	["operator", "<"],
+	["keyword", "float"],
+	["operator", ">"],
+	" d5",
+	["punctuation", ";"],
+
+	["class-name", "depthcube_array"],
+	["operator", "<"],
+	["keyword", "float"],
+	["operator", ">"],
+	" d6",
+	["punctuation", ";"],
+
+	["class-name", "sampler"],
+	" s",
+	["punctuation", ";"],
+
+	["class-name", "atomic_int"],
+	" a1",
+	["punctuation", ";"],
+	["class-name", "atomic_uint"],
+	" a2",
+	["punctuation", ";"],
+	["class-name", "atomic_bool"],
+	" a3",
+	["punctuation", ";"],
+	["class-name", "atomic_ulong"],
+	" a4",
+	["punctuation", ";"],
+	["class-name", "atomic_float"],
+	" a5",
+	["punctuation", ";"]
+]

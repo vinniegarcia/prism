@@ -1,0 +1,63 @@
+bool char short int long uchar ushort uint ulong half bfloat float size_t ptrdiff_t
+
+bool2 char3 short4 int2 long3 uchar4 ushort2 uint3 ulong4 half2 bfloat3 float4
+
+packed_char2 packed_short3 packed_int4 packed_long2 packed_uchar3 packed_ushort4
+packed_uint2 packed_half3 packed_bfloat4 packed_float3
+
+half2x2 half3x4 half4x3 float2x3 float3x3 float4x4
+
+float5 float1 int8 packed_bool2 double2 float4x5 half1x2
+
+----------------------------------------------------
+
+[
+	["keyword", "bool"],
+	["keyword", "char"],
+	["keyword", "short"],
+	["keyword", "int"],
+	["keyword", "long"],
+	["keyword", "uchar"],
+	["keyword", "ushort"],
+	["keyword", "uint"],
+	["keyword", "ulong"],
+	["keyword", "half"],
+	["keyword", "bfloat"],
+	["keyword", "float"],
+	["keyword", "size_t"],
+	["keyword", "ptrdiff_t"],
+
+	["keyword", "bool2"],
+	["keyword", "char3"],
+	["keyword", "short4"],
+	["keyword", "int2"],
+	["keyword", "long3"],
+	["keyword", "uchar4"],
+	["keyword", "ushort2"],
+	["keyword", "uint3"],
+	["keyword", "ulong4"],
+	["keyword", "half2"],
+	["keyword", "bfloat3"],
+	["keyword", "float4"],
+
+	["keyword", "packed_char2"],
+	["keyword", "packed_short3"],
+	["keyword", "packed_int4"],
+	["keyword", "packed_long2"],
+	["keyword", "packed_uchar3"],
+	["keyword", "packed_ushort4"],
+
+	["keyword", "packed_uint2"],
+	["keyword", "packed_half3"],
+	["keyword", "packed_bfloat4"],
+	["keyword", "packed_float3"],
+
+	["keyword", "half2x2"],
+	["keyword", "half3x4"],
+	["keyword", "half4x3"],
+	["keyword", "float2x3"],
+	["keyword", "float3x3"],
+	["keyword", "float4x4"],
+
+	"\r\n\r\nfloat5 float1 int8 packed_bool2 double2 float4x5 half1x2"
+]

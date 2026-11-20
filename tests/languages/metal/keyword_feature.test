@@ -1,0 +1,79 @@
+device float* a;
+constant float4& b;
+thread int c;
+threadgroup float d[64];
+threadgroup_imageblock Data* e;
+ray_data Payload& f;
+object_data Payload& g;
+
+kernel void k();
+vertex VertexOut v();
+fragment half4 f();
+
+----------------------------------------------------
+
+[
+	["keyword", "device"],
+	["keyword", "float"],
+	["operator", "*"],
+	" a",
+	["punctuation", ";"],
+
+	["keyword", "constant"],
+	["keyword", "float4"],
+	["operator", "&"],
+	" b",
+	["punctuation", ";"],
+
+	["keyword", "thread"],
+	["keyword", "int"],
+	" c",
+	["punctuation", ";"],
+
+	["keyword", "threadgroup"],
+	["keyword", "float"],
+	" d",
+	["punctuation", "["],
+	["number", "64"],
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["keyword", "threadgroup_imageblock"],
+	" Data",
+	["operator", "*"],
+	" e",
+	["punctuation", ";"],
+
+	["keyword", "ray_data"],
+	" Payload",
+	["operator", "&"],
+	" f",
+	["punctuation", ";"],
+
+	["keyword", "object_data"],
+	" Payload",
+	["operator", "&"],
+	" g",
+	["punctuation", ";"],
+
+	["keyword", "kernel"],
+	["keyword", "void"],
+	["function", "k"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "vertex"],
+	" VertexOut ",
+	["function", "v"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "fragment"],
+	["keyword", "half4"],
+	["function", "f"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"]
+]

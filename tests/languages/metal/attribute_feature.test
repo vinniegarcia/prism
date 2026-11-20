@@ -1,0 +1,42 @@
+device float* a [[buffer(0)]]
+uint2 gid [[thread_position_in_grid]]
+float4 color [[color(0), raster_order_group(0)]]
+[[host_name("my_kernel")]] void k();
+
+"[[not an attribute]]"
+x[y[0]]
+
+----------------------------------------------------
+
+[
+	["keyword", "device"],
+	["keyword", "float"],
+	["operator", "*"],
+	" a ",
+	["attribute", "[[buffer(0)]]"],
+
+	["keyword", "uint2"],
+	" gid ",
+	["attribute", "[[thread_position_in_grid]]"],
+
+	["keyword", "float4"],
+	" color ",
+	["attribute", "[[color(0), raster_order_group(0)]]"],
+
+	["attribute", "[[host_name(\"my_kernel\")]]"],
+	["keyword", "void"],
+	["function", "k"],
+	["punctuation", "("],
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["string", "\"[[not an attribute]]\""],
+
+	"\r\nx",
+	["punctuation", "["],
+	"y",
+	["punctuation", "["],
+	["number", "0"],
+	["punctuation", "]"],
+	["punctuation", "]"]
+]

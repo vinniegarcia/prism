@@ -1,0 +1,267 @@
+#include <metal_stdlib>
+using namespace metal;
+
+struct Params {
+    uint width;
+    uint height;
+    float strength;
+};
+
+// Blur each pixel with its neighbours, staging a tile in threadgroup memory.
+kernel void blur(texture2d<half, access::read>  src    [[texture(0)]],
+                 texture2d<half, access::write> dst    [[texture(1)]],
+                 constant Params&               params [[buffer(0)]],
+                 device atomic_uint*            count  [[buffer(1)]],
+                 uint2 gid  [[thread_position_in_grid]],
+                 uint2 lid  [[thread_position_in_threadgroup]],
+                 uint2 size [[threads_per_threadgroup]])
+{
+    threadgroup half4 tile[16][16];
+
+    if (gid.x >= params.width || gid.y >= params.height) {
+        return;
+    }
+
+    tile[lid.y][lid.x] = src.read(gid);
+    threadgroup_barrier(mem_flags::mem_threadgroup);
+
+    half4 sum = 0.0h;
+    for (uint i = 0; i < size.x; ++i) {
+        sum += tile[lid.y][i];
+    }
+
+    const float weight = params.strength / float(size.x);
+    dst.write(half4(float4(sum) * weight), gid);
+    atomic_fetch_add_explicit(count, 1u, memory_order_relaxed);
+}
+
+----------------------------------------------------
+
+[
+	["macro", [
+		["directive-hash", "#"],
+		["directive", "include"],
+		["string", "<metal_stdlib>"]
+	]],
+
+	["keyword", "using"],
+	["keyword", "namespace"],
+	" metal",
+	["punctuation", ";"],
+
+	["keyword", "struct"], ["class-name", "Params"], ["punctuation", "{"],
+	["keyword", "uint"], " width", ["punctuation", ";"],
+	["keyword", "uint"], " height", ["punctuation", ";"],
+	["keyword", "float"], " strength", ["punctuation", ";"],
+	["punctuation", "}"], ["punctuation", ";"],
+
+	["comment", "// Blur each pixel with its neighbours, staging a tile in threadgroup memory."],
+
+	["keyword", "kernel"],
+	["keyword", "void"],
+	["function", "blur"],
+	["punctuation", "("],
+	["class-name", "texture2d"],
+	["operator", "<"],
+	["keyword", "half"],
+	["punctuation", ","],
+	" access",
+	["double-colon", "::"],
+	"read",
+	["operator", ">"],
+	"  src    ",
+	["attribute", "[[texture(0)]]"],
+	["punctuation", ","],
+
+	["class-name", "texture2d"],
+	["operator", "<"],
+	["keyword", "half"],
+	["punctuation", ","],
+	" access",
+	["double-colon", "::"],
+	"write",
+	["operator", ">"],
+	" dst    ",
+	["attribute", "[[texture(1)]]"],
+	["punctuation", ","],
+
+	["keyword", "constant"],
+	" Params",
+	["operator", "&"],
+	"               params ",
+	["attribute", "[[buffer(0)]]"],
+	["punctuation", ","],
+
+	["keyword", "device"],
+	["class-name", "atomic_uint"],
+	["operator", "*"],
+	"            count  ",
+	["attribute", "[[buffer(1)]]"],
+	["punctuation", ","],
+
+	["keyword", "uint2"],
+	" gid  ",
+	["attribute", "[[thread_position_in_grid]]"],
+	["punctuation", ","],
+
+	["keyword", "uint2"],
+	" lid  ",
+	["attribute", "[[thread_position_in_threadgroup]]"],
+	["punctuation", ","],
+
+	["keyword", "uint2"],
+	" size ",
+	["attribute", "[[threads_per_threadgroup]]"],
+	["punctuation", ")"],
+
+	["punctuation", "{"],
+
+	["keyword", "threadgroup"],
+	["keyword", "half4"],
+	" tile",
+	["punctuation", "["],
+	["number", "16"],
+	["punctuation", "]"],
+	["punctuation", "["],
+	["number", "16"],
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["keyword", "if"],
+	["punctuation", "("],
+	"gid",
+	["punctuation", "."],
+	"x ",
+	["operator", ">="],
+	" params",
+	["punctuation", "."],
+	"width ",
+	["operator", "||"],
+	" gid",
+	["punctuation", "."],
+	"y ",
+	["operator", ">="],
+	" params",
+	["punctuation", "."],
+	"height",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	["keyword", "return"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	"\r\n\r\n    tile",
+	["punctuation", "["],
+	"lid",
+	["punctuation", "."],
+	"y",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"lid",
+	["punctuation", "."],
+	"x",
+	["punctuation", "]"],
+	["operator", "="],
+	" src",
+	["punctuation", "."],
+	["function", "read"],
+	["punctuation", "("],
+	"gid",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "threadgroup_barrier"],
+	["punctuation", "("],
+	"mem_flags",
+	["double-colon", "::"],
+	"mem_threadgroup",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["keyword", "half4"],
+	" sum ",
+	["operator", "="],
+	["number", "0.0h"],
+	["punctuation", ";"],
+
+	["keyword", "for"],
+	["punctuation", "("],
+	["keyword", "uint"],
+	" i ",
+	["operator", "="],
+	["number", "0"],
+	["punctuation", ";"],
+	" i ",
+	["operator", "<"],
+	" size",
+	["punctuation", "."],
+	"x",
+	["punctuation", ";"],
+	["operator", "++"],
+	"i",
+	["punctuation", ")"],
+	["punctuation", "{"],
+
+	"\r\n        sum ",
+	["operator", "+="],
+	" tile",
+	["punctuation", "["],
+	"lid",
+	["punctuation", "."],
+	"y",
+	["punctuation", "]"],
+	["punctuation", "["],
+	"i",
+	["punctuation", "]"],
+	["punctuation", ";"],
+
+	["punctuation", "}"],
+
+	["keyword", "const"],
+	["keyword", "float"],
+	" weight ",
+	["operator", "="],
+	" params",
+	["punctuation", "."],
+	"strength ",
+	["operator", "/"],
+	["keyword", "float"],
+	["punctuation", "("],
+	"size",
+	["punctuation", "."],
+	"x",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	"\r\n    dst",
+	["punctuation", "."],
+	["function", "write"],
+	["punctuation", "("],
+	["keyword", "half4"],
+	["punctuation", "("],
+	["keyword", "float4"],
+	["punctuation", "("],
+	"sum",
+	["punctuation", ")"],
+	["operator", "*"],
+	" weight",
+	["punctuation", ")"],
+	["punctuation", ","],
+	" gid",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["function", "atomic_fetch_add_explicit"],
+	["punctuation", "("],
+	"count",
+	["punctuation", ","],
+	["number", "1u"],
+	["punctuation", ","],
+	" memory_order_relaxed",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["punctuation", "}"]
+]
