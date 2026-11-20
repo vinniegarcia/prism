@@ -1,0 +1,74 @@
+MAXFLOAT MAXHALF MAXBFLOAT HUGE_VALF HUGE_VALH HUGE_VALBF INFINITY NAN
+M_PI_F M_PI_H M_PI_BF M_E_F M_LOG2E_H M_LOG10E_BF M_LN2_F M_LN10_H
+M_PI_2_F M_PI_4_H M_1_PI_F M_2_PI_H M_2_SQRTPI_F M_SQRT2_H M_SQRT1_2_BF
+
+memory_order_relaxed memory_order_acquire memory_order_release
+memory_order_acq_rel memory_order_seq_cst
+
+thread_scope_thread thread_scope_simdgroup thread_scope_threadgroup thread_scope_device
+
+memory_coherence_threadgroup memory_coherence_device
+
+__METAL__ __METAL_VERSION__ __METAL_MACOS__ __METAL_IOS__
+__FILE__ NULL
+
+M_PI M_PI_D
+
+----------------------------------------------------
+
+[
+	["constant", "MAXFLOAT"],
+	["constant", "MAXHALF"],
+	["constant", "MAXBFLOAT"],
+	["constant", "HUGE_VALF"],
+	["constant", "HUGE_VALH"],
+	["constant", "HUGE_VALBF"],
+	["constant", "INFINITY"],
+	["constant", "NAN"],
+
+	["constant", "M_PI_F"],
+	["constant", "M_PI_H"],
+	["constant", "M_PI_BF"],
+	["constant", "M_E_F"],
+	["constant", "M_LOG2E_H"],
+	["constant", "M_LOG10E_BF"],
+	["constant", "M_LN2_F"],
+	["constant", "M_LN10_H"],
+
+	["constant", "M_PI_2_F"],
+	["constant", "M_PI_4_H"],
+	["constant", "M_1_PI_F"],
+	["constant", "M_2_PI_H"],
+	["constant", "M_2_SQRTPI_F"],
+	["constant", "M_SQRT2_H"],
+	["constant", "M_SQRT1_2_BF"],
+
+	["constant", "memory_order_relaxed"],
+	["constant", "memory_order_acquire"],
+	["constant", "memory_order_release"],
+
+	["constant", "memory_order_acq_rel"],
+	["constant", "memory_order_seq_cst"],
+
+	["constant", "thread_scope_thread"],
+	["constant", "thread_scope_simdgroup"],
+	["constant", "thread_scope_threadgroup"],
+	["constant", "thread_scope_device"],
+
+	["constant", "memory_coherence_threadgroup"],
+	["constant", "memory_coherence_device"],
+
+	["constant", "__METAL__"],
+	["constant", "__METAL_VERSION__"],
+	["constant", "__METAL_MACOS__"],
+	["constant", "__METAL_IOS__"],
+
+	["constant", "__FILE__"],
+	["constant", "NULL"],
+
+	"\r\n\r\nM_PI M_PI_D"
+]
+
+----------------------------------------------------
+
+Math constants (6.6), memory orders (6.16.1), thread scopes (6.10.1, 6.16.2), memory coherence (2.9) and predefined macros (1.6.2). The C constants still apply. The last line has names without a precision suffix, which Metal doesn't define.

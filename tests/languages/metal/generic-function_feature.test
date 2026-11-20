@@ -1,0 +1,34 @@
+as_type<float4>(x)
+static_cast<half3>(c)
+
+----------------------------------------------------
+
+[
+	["generic-function", [
+		["function", "as_type"],
+		["generic", [
+			["operator", "<"],
+			["keyword", "float4"],
+			["operator", ">"]
+		]]
+	]],
+	["punctuation", "("],
+	"x",
+	["punctuation", ")"],
+
+	["generic-function", [
+		["function", "static_cast"],
+		["generic", [
+			["operator", "<"],
+			["keyword", "half3"],
+			["operator", ">"]
+		]]
+	]],
+	["punctuation", "("],
+	"c",
+	["punctuation", ")"]
+]
+
+----------------------------------------------------
+
+Template arguments of generic function calls are highlighted as Metal, so Metal types inside them are keywords.

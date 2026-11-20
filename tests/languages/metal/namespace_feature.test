@@ -1,0 +1,95 @@
+using namespace metal;
+using namespace raytracing;
+using namespace std;
+
+metal::float4 a;
+metal::fast::sin(x);
+metal::precise::cos(x);
+fast::exp(x);
+raytracing::ray r;
+metal::raytracing::intersector<> i;
+
+namespace metal_ext {}
+my::metal x;
+
+----------------------------------------------------
+
+[
+	["keyword", "using"],
+	["keyword", "namespace"],
+	["namespace", "metal"],
+	["punctuation", ";"],
+
+	["keyword", "using"],
+	["keyword", "namespace"],
+	["namespace", "raytracing"],
+	["punctuation", ";"],
+
+	["keyword", "using"],
+	["keyword", "namespace"],
+	" std",
+	["punctuation", ";"],
+
+	["namespace", "metal"],
+	["double-colon", "::"],
+	["keyword", "float4"],
+	" a",
+	["punctuation", ";"],
+
+	["namespace", "metal"],
+	["double-colon", "::"],
+	["namespace", "fast"],
+	["double-colon", "::"],
+	["function", "sin"],
+	["punctuation", "("],
+	"x",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["namespace", "metal"],
+	["double-colon", "::"],
+	["namespace", "precise"],
+	["double-colon", "::"],
+	["function", "cos"],
+	["punctuation", "("],
+	"x",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["namespace", "fast"],
+	["double-colon", "::"],
+	["function", "exp"],
+	["punctuation", "("],
+	"x",
+	["punctuation", ")"],
+	["punctuation", ";"],
+
+	["namespace", "raytracing"],
+	["double-colon", "::"],
+	"ray r",
+	["punctuation", ";"],
+
+	["namespace", "metal"],
+	["double-colon", "::"],
+	["namespace", "raytracing"],
+	["double-colon", "::"],
+	["class-name", "intersector"],
+	["operator", "<"],
+	["operator", ">"],
+	" i",
+	["punctuation", ";"],
+
+	["keyword", "namespace"],
+	" metal_ext ",
+	["punctuation", "{"],
+	["punctuation", "}"],
+
+	"\r\nmy",
+	["double-colon", "::"],
+	"metal x",
+	["punctuation", ";"]
+]
+
+----------------------------------------------------
+
+The Metal standard library namespace (6.1), its fast and precise math namespaces (6.6) and the ray-tracing namespace (2.17, 6.19).
