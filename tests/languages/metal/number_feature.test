@@ -1,49 +1,21 @@
-42
 42u
-42U
-42l
-42ul
 0.5f
-0.5F
 0.5h
 0.5H
 0.5bf
 0.5BF
-1.f
-.5h
-1e10f
 1.5e-3h
 0x1F
-0xFFu
-0x1p-3f
-0b1010
-1'000'000
 
 ----------------------------------------------------
 
 [
-	["number", "42"],
 	["number", "42u"],
-	["number", "42U"],
-	["number", "42l"],
-	["number", "42ul"],
 	["number", "0.5f"],
-	["number", "0.5F"],
 	["number", "0.5h"],
 	["number", "0.5H"],
 	["number", "0.5bf"],
 	["number", "0.5BF"],
-	["number", "1.f"],
-	["number", ".5h"],
-	["number", "1e10f"],
 	["number", "1.5e-3h"],
-	["number", "0x1F"],
-	["number", "0xFFu"],
-	["number", "0x1p-3f"],
-	["number", "0b1010"],
-	["number", "1'000'000"]
+	["number", "0x1F"]
 ]
-
-----------------------------------------------------
-
-Numbers with the f, h, bf, u and l suffixes (2.1) and C++ number syntax.

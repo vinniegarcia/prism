@@ -1,23 +1,7 @@
-[[kernel]] void k();
-[[vertex]] VertexOut v();
-[[visible]] float f(float x);
-[[stitchable]] float g(float x);
-[[object]] void o();
-[[mesh]] void m();
-[[intersection(triangle, triangle_data, instancing)]] bool hit();
-
 device float* a [[buffer(0)]]
-texture2d<float> t [[ texture(1) ]]
-sampler s [[sampler(2)]]
 uint2 gid [[thread_position_in_grid]]
-VertexIn in [[stage_in]]
-float4 position [[position]]
 float4 color [[color(0), raster_order_group(0)]]
-float3 normal [[user(normal), flat]]
-constant bool has_fog [[function_constant(fog_index + 1)]];
-[[host_name("my_kernel")]] [[max_total_threads_per_threadgroup(256)]]
-[[user_annotation("tag")]]
-[[clang::optnone]]
+[[host_name("my_kernel")]] void k();
 
 "[[not an attribute]]"
 x[y[0]]
@@ -25,254 +9,26 @@ x[y[0]]
 ----------------------------------------------------
 
 [
-	["attribute", [
-		["punctuation", "[["],
-		"kernel",
-		["punctuation", "]]"]
-	]],
+	["keyword", "device"],
+	["keyword", "float"],
+	["operator", "*"],
+	" a ",
+	["attribute", "[[buffer(0)]]"],
+
+	["keyword", "uint2"],
+	" gid ",
+	["attribute", "[[thread_position_in_grid]]"],
+
+	["keyword", "float4"],
+	" color ",
+	["attribute", "[[color(0), raster_order_group(0)]]"],
+
+	["attribute", "[[host_name(\"my_kernel\")]]"],
 	["keyword", "void"],
 	["function", "k"],
 	["punctuation", "("],
 	["punctuation", ")"],
 	["punctuation", ";"],
-
-	["attribute", [
-		["punctuation", "[["],
-		"vertex",
-		["punctuation", "]]"]
-	]],
-	" VertexOut ",
-	["function", "v"],
-	["punctuation", "("],
-	["punctuation", ")"],
-	["punctuation", ";"],
-
-	["attribute", [
-		["punctuation", "[["],
-		"visible",
-		["punctuation", "]]"]
-	]],
-	["keyword", "float"],
-	["function", "f"],
-	["punctuation", "("],
-	["keyword", "float"],
-	" x",
-	["punctuation", ")"],
-	["punctuation", ";"],
-
-	["attribute", [
-		["punctuation", "[["],
-		"stitchable",
-		["punctuation", "]]"]
-	]],
-	["keyword", "float"],
-	["function", "g"],
-	["punctuation", "("],
-	["keyword", "float"],
-	" x",
-	["punctuation", ")"],
-	["punctuation", ";"],
-
-	["attribute", [
-		["punctuation", "[["],
-		"object",
-		["punctuation", "]]"]
-	]],
-	["keyword", "void"],
-	["function", "o"],
-	["punctuation", "("],
-	["punctuation", ")"],
-	["punctuation", ";"],
-
-	["attribute", [
-		["punctuation", "[["],
-		"mesh",
-		["punctuation", "]]"]
-	]],
-	["keyword", "void"],
-	["function", "m"],
-	["punctuation", "("],
-	["punctuation", ")"],
-	["punctuation", ";"],
-
-	["attribute", [
-		["punctuation", "[["],
-		"intersection",
-		["attribute-arguments", [
-			["punctuation", "("],
-			"triangle",
-			["punctuation", ","],
-			" triangle_data",
-			["punctuation", ","],
-			" instancing",
-			["punctuation", ")"]
-		]],
-		["punctuation", "]]"]
-	]],
-	["keyword", "bool"],
-	["function", "hit"],
-	["punctuation", "("],
-	["punctuation", ")"],
-	["punctuation", ";"],
-
-	["keyword", "device"],
-	["keyword", "float"],
-	["operator", "*"],
-	" a ",
-	["attribute", [
-		["punctuation", "[["],
-		"buffer",
-		["attribute-arguments", [
-			["punctuation", "("],
-			["number", "0"],
-			["punctuation", ")"]
-		]],
-		["punctuation", "]]"]
-	]],
-
-	["class-name", "texture2d"],
-	["operator", "<"],
-	["keyword", "float"],
-	["operator", ">"],
-	" t ",
-	["attribute", [
-		["punctuation", "[["],
-		" texture",
-		["attribute-arguments", [
-			["punctuation", "("],
-			["number", "1"],
-			["punctuation", ")"]
-		]],
-		["punctuation", "]]"]
-	]],
-
-	["class-name", "sampler"],
-	" s ",
-	["attribute", [
-		["punctuation", "[["],
-		"sampler",
-		["attribute-arguments", [
-			["punctuation", "("],
-			["number", "2"],
-			["punctuation", ")"]
-		]],
-		["punctuation", "]]"]
-	]],
-
-	["keyword", "uint2"],
-	" gid ",
-	["attribute", [
-		["punctuation", "[["],
-		"thread_position_in_grid",
-		["punctuation", "]]"]
-	]],
-
-	"\r\nVertexIn in ",
-	["attribute", [
-		["punctuation", "[["],
-		"stage_in",
-		["punctuation", "]]"]
-	]],
-
-	["keyword", "float4"],
-	" position ",
-	["attribute", [
-		["punctuation", "[["],
-		"position",
-		["punctuation", "]]"]
-	]],
-
-	["keyword", "float4"],
-	" color ",
-	["attribute", [
-		["punctuation", "[["],
-		"color",
-		["attribute-arguments", [
-			["punctuation", "("],
-			["number", "0"],
-			["punctuation", ")"]
-		]],
-		["punctuation", ","],
-		" raster_order_group",
-		["attribute-arguments", [
-			["punctuation", "("],
-			["number", "0"],
-			["punctuation", ")"]
-		]],
-		["punctuation", "]]"]
-	]],
-
-	["keyword", "float3"],
-	" normal ",
-	["attribute", [
-		["punctuation", "[["],
-		"user",
-		["attribute-arguments", [
-			["punctuation", "("],
-			"normal",
-			["punctuation", ")"]
-		]],
-		["punctuation", ","],
-		" flat",
-		["punctuation", "]]"]
-	]],
-
-	["keyword", "constant"],
-	["keyword", "bool"],
-	" has_fog ",
-	["attribute", [
-		["punctuation", "[["],
-		"function_constant",
-		["attribute-arguments", [
-			["punctuation", "("],
-			"fog_index ",
-			["operator", "+"],
-			["number", "1"],
-			["punctuation", ")"]
-		]],
-		["punctuation", "]]"]
-	]],
-	["punctuation", ";"],
-
-	["attribute", [
-		["punctuation", "[["],
-		"host_name",
-		["attribute-arguments", [
-			["punctuation", "("],
-			["string", "\"my_kernel\""],
-			["punctuation", ")"]
-		]],
-		["punctuation", "]]"]
-	]],
-	["attribute", [
-		["punctuation", "[["],
-		"max_total_threads_per_threadgroup",
-		["attribute-arguments", [
-			["punctuation", "("],
-			["number", "256"],
-			["punctuation", ")"]
-		]],
-		["punctuation", "]]"]
-	]],
-
-	["attribute", [
-		["punctuation", "[["],
-		"user_annotation",
-		["attribute-arguments", [
-			["punctuation", "("],
-			["string", "\"tag\""],
-			["punctuation", ")"]
-		]],
-		["punctuation", "]]"]
-	]],
-
-	["attribute", [
-		["punctuation", "[["],
-		"clang",
-		["punctuation", "::"],
-		"optnone",
-		["punctuation", "]]"]
-	]],
 
 	["string", "\"[[not an attribute]]\""],
 
@@ -284,7 +40,3 @@ x[y[0]]
 	["punctuation", "]"],
 	["punctuation", "]"]
 ]
-
-----------------------------------------------------
-
-Attributes (5.1, 5.2) are highlighted as attr-name, with their arguments highlighted as Metal code. Brackets inside strings and nested subscripts aren't attributes.

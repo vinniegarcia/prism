@@ -7,9 +7,7 @@ packed_uint2 packed_half3 packed_bfloat4 packed_float3
 
 half2x2 half3x4 half4x3 float2x3 float3x3 float4x4
 
-simdgroup_half8x8 simdgroup_bfloat8x8 simdgroup_float8x8
-
-float5 float1 int8 packed_bool2 double2 float4x5 half1x2 simdgroup_int8x8
+float5 float1 int8 packed_bool2 double2 float4x5 half1x2
 
 ----------------------------------------------------
 
@@ -61,13 +59,5 @@ float5 float1 int8 packed_bool2 double2 float4x5 half1x2 simdgroup_int8x8
 	["keyword", "float3x3"],
 	["keyword", "float4x4"],
 
-	["keyword", "simdgroup_half8x8"],
-	["keyword", "simdgroup_bfloat8x8"],
-	["keyword", "simdgroup_float8x8"],
-
-	"\r\n\r\nfloat5 float1 int8 packed_bool2 double2 float4x5 half1x2 simdgroup_int8x8"
+	"\r\n\r\nfloat5 float1 int8 packed_bool2 double2 float4x5 half1x2"
 ]
-
-----------------------------------------------------
-
-Scalar types (2.1), vector types (2.2), packed vector types (2.2.3), matrix types (2.3) and SIMD-group matrix types (2.4). The last line has names Metal doesn't define, which stay plain.

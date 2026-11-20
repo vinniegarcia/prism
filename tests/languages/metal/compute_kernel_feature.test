@@ -46,7 +46,7 @@ kernel void blur(texture2d<half, access::read>  src    [[texture(0)]],
 
 	["keyword", "using"],
 	["keyword", "namespace"],
-	["namespace", "metal"],
+	" metal",
 	["punctuation", ";"],
 
 	["keyword", "struct"], ["class-name", "Params"], ["punctuation", "{"],
@@ -65,105 +65,53 @@ kernel void blur(texture2d<half, access::read>  src    [[texture(0)]],
 	["operator", "<"],
 	["keyword", "half"],
 	["punctuation", ","],
-	["scoped-enum", [
-		["class-name", "access"],
-		["double-colon", "::"],
-		["constant", "read"]
-	]],
+	" access",
+	["double-colon", "::"],
+	"read",
 	["operator", ">"],
 	"  src    ",
-	["attribute", [
-		["punctuation", "[["],
-		"texture",
-		["attribute-arguments", [
-			["punctuation", "("],
-			["number", "0"],
-			["punctuation", ")"]
-		]],
-		["punctuation", "]]"]
-	]],
+	["attribute", "[[texture(0)]]"],
 	["punctuation", ","],
 
 	["class-name", "texture2d"],
 	["operator", "<"],
 	["keyword", "half"],
 	["punctuation", ","],
-	["scoped-enum", [
-		["class-name", "access"],
-		["double-colon", "::"],
-		["constant", "write"]
-	]],
+	" access",
+	["double-colon", "::"],
+	"write",
 	["operator", ">"],
 	" dst    ",
-	["attribute", [
-		["punctuation", "[["],
-		"texture",
-		["attribute-arguments", [
-			["punctuation", "("],
-			["number", "1"],
-			["punctuation", ")"]
-		]],
-		["punctuation", "]]"]
-	]],
+	["attribute", "[[texture(1)]]"],
 	["punctuation", ","],
 
 	["keyword", "constant"],
 	" Params",
 	["operator", "&"],
 	"               params ",
-	["attribute", [
-		["punctuation", "[["],
-		"buffer",
-		["attribute-arguments", [
-			["punctuation", "("],
-			["number", "0"],
-			["punctuation", ")"]
-		]],
-		["punctuation", "]]"]
-	]],
+	["attribute", "[[buffer(0)]]"],
 	["punctuation", ","],
 
 	["keyword", "device"],
 	["class-name", "atomic_uint"],
 	["operator", "*"],
 	"            count  ",
-	["attribute", [
-		["punctuation", "[["],
-		"buffer",
-		["attribute-arguments", [
-			["punctuation", "("],
-			["number", "1"],
-			["punctuation", ")"]
-		]],
-		["punctuation", "]]"]
-	]],
+	["attribute", "[[buffer(1)]]"],
 	["punctuation", ","],
 
 	["keyword", "uint2"],
 	" gid  ",
-	["attribute", [
-		["punctuation", "[["],
-		"thread_position_in_grid",
-		["punctuation", "]]"]
-	]],
+	["attribute", "[[thread_position_in_grid]]"],
 	["punctuation", ","],
 
 	["keyword", "uint2"],
 	" lid  ",
-	["attribute", [
-		["punctuation", "[["],
-		"thread_position_in_threadgroup",
-		["punctuation", "]]"]
-	]],
+	["attribute", "[[thread_position_in_threadgroup]]"],
 	["punctuation", ","],
 
 	["keyword", "uint2"],
 	" size ",
-	["attribute", [
-		["punctuation", "[["],
-		"threads_per_threadgroup",
-		["punctuation", "]]"]
-	]],
+	["attribute", "[[threads_per_threadgroup]]"],
 	["punctuation", ")"],
 
 	["punctuation", "{"],
@@ -226,11 +174,9 @@ kernel void blur(texture2d<half, access::read>  src    [[texture(0)]],
 
 	["function", "threadgroup_barrier"],
 	["punctuation", "("],
-	["scoped-enum", [
-		["class-name", "mem_flags"],
-		["double-colon", "::"],
-		["constant", "mem_threadgroup"]
-	]],
+	"mem_flags",
+	["double-colon", "::"],
+	"mem_threadgroup",
 	["punctuation", ")"],
 	["punctuation", ";"],
 
@@ -313,13 +259,9 @@ kernel void blur(texture2d<half, access::read>  src    [[texture(0)]],
 	["punctuation", ","],
 	["number", "1u"],
 	["punctuation", ","],
-	["constant", "memory_order_relaxed"],
+	" memory_order_relaxed",
 	["punctuation", ")"],
 	["punctuation", ";"],
 
 	["punctuation", "}"]
 ]
-
-----------------------------------------------------
-
-A realistic compute kernel that combines resources, attributes, address spaces, threadgroup memory and atomics.

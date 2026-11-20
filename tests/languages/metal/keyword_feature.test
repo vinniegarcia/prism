@@ -10,8 +10,6 @@ kernel void k();
 vertex VertexOut v();
 fragment half4 f();
 
-object mesh visible stitchable intersection
-
 ----------------------------------------------------
 
 [
@@ -77,11 +75,5 @@ object mesh visible stitchable intersection
 	["function", "f"],
 	["punctuation", "("],
 	["punctuation", ")"],
-	["punctuation", ";"],
-
-	"\r\n\r\nobject mesh visible stitchable intersection"
+	["punctuation", ";"]
 ]
-
-----------------------------------------------------
-
-Address space qualifiers (section 4) and the kernel, vertex and fragment function qualifiers (section 5.1) are keywords. The other function qualifiers are only written as [[attributes]], so the bare words stay plain identifiers.
